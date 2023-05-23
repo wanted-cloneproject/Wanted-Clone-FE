@@ -1,0 +1,18 @@
+.slick-slider {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  max-width: 100%;
+}
+
+.slick-track {
+  display: flex;
+  gap: 20px;
+}
+
+.slick-track section {
+  width: 100% !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  /* 위에는 이미지를 div에 꽉 채우기 위한 3가지 설정 */
+  height: 360px !important; /* slick 이미지 height 고정 */
+}
