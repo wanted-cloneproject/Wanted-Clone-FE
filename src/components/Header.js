@@ -163,10 +163,15 @@ const MyHeader = () => {
                 d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"
               ></path>
             </svg>
-
-            <Link to={"/login"}>
-              <button className="font-semibold">회원가입/로그인</button>
-            </Link>
+            {socialLoginUser ? (
+              <div className="text text-[14px] font-bold text-[#646464]">
+                {socialLoginUser} 님
+              </div>
+            ) : (
+              <Link to={"/login"}>
+                <button className="font-semibold">회원가입/로그인</button>
+              </Link>
+            )}
           </div>
           <div className="text-[#e1e2e3]">|</div>
           <div>
