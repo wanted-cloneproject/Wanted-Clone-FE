@@ -1,11 +1,38 @@
-import { KAKAO_AUTH_URL } from "../OAuth";
 import { useNavigate, Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
 
+const User = {
+  email: "harim668@gmail.com",
+};
+
 const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [emailValid, setEmailValid] = useState(false);
+
+  const handleEmail = (email) => {
+    setEmail(email);
+
+    const regex =
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+
+    if (regex.test(email)) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false);
+    }
+  };
+
+  const onClickConfirmBtn = () => {
+    if (email !== User.email && email.length > 0)
+      alert("존재하지 않는 이메일입니다.");
+    else {
+      localStorage.setItem("email", "임하림");
+      navigate("/");
+    }
+  };
 
   return (
     <div className="flex h-screen items-center justify-center bg-[#f7f7f7] py-16">
@@ -35,9 +62,22 @@ const Login = () => {
               type="email"
               className="border-gray mt-3 block w-full border-[1px] border-solid p-2"
               placeholder="이메일을 입력해주세요."
+              value={email}
+              onChange={(e) => handleEmail(e.target.value)}
             ></input>
+            {!emailValid && email.length > 0 ? (
+              <div className="ml-1 mt-1 text-[11px] font-semibold text-red-500">
+                올바른 이메일을 입력해주세요
+              </div>
+            ) : (
+              ""
+            )}
             <div className="flex justify-center">
-              <button className="mt-3 rounded-full bg-[#3366ff] px-10 py-3 text-[13px] font-bold text-white shadow-md disabled:bg-[#f5f5f5] disabled:text-[#6d6d6d]">
+              <button
+                disabled={!emailValid}
+                onClick={onClickConfirmBtn}
+                className="mt-3 rounded-full bg-[#3366ff] px-10 py-3 text-[13px] font-bold text-white shadow-md disabled:bg-[#f5f5f5] disabled:text-[#6d6d6d]"
+              >
                 이메일로 계속하기
               </button>
             </div>
@@ -63,7 +103,7 @@ const Login = () => {
             </div>
 
             <div className="flex justify-evenly gap-8">
-              <Link to={KAKAO_AUTH_URL}>
+              <Link to="/">
                 <svg viewBox="0 0 57 56" className="mb-2 h-12 w-12">
                   <path
                     d="M0.5 28C0.5 12.536 13.036 0 28.5 0C43.964 0 56.5 12.536 56.5 28C56.5 43.464 43.964 56 28.5 56C13.036 56 0.5 43.464 0.5 28Z"
