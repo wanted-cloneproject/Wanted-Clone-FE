@@ -1,7 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
-import { GoogleLogin } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
+
 import { useState } from "react";
+import { KAKAO_AUTH_URL } from "../OAuth";
+import GoogleLoginBtn from "../GoogleLoginBtn";
 
 const User = {
   email: "harim668@gmail.com",
@@ -29,7 +30,7 @@ const Login = () => {
     if (email !== User.email && email.length > 0)
       alert("존재하지 않는 이메일입니다.");
     else {
-      localStorage.setItem("email", "임하림");
+      localStorage.setItem("emailUser", "임하림");
       navigate("/");
     }
   };
@@ -87,23 +88,11 @@ const Login = () => {
           </p>
           <div>
             <div className="mb-4 flex items-center justify-center">
-              <GoogleLogin
-                buttonText="Google Login"
-                onSuccess={(credentialResponse) => {
-                  console.log(credentialResponse);
-                  const decodeding = jwt_decode(credentialResponse.credential);
-                  console.log(decodeding.name);
-                  localStorage.setItem("user", decodeding.name);
-                  navigate("/");
-                }}
-                onError={() => {
-                  console.log("Login Failed");
-                }}
-              />
+              <GoogleLoginBtn />
             </div>
 
             <div className="flex justify-evenly gap-8">
-              <Link to="/">
+              <Link to={KAKAO_AUTH_URL}>
                 <svg viewBox="0 0 57 56" className="mb-2 h-12 w-12">
                   <path
                     d="M0.5 28C0.5 12.536 13.036 0 28.5 0C43.964 0 56.5 12.536 56.5 28C56.5 43.464 43.964 56 28.5 56C13.036 56 0.5 43.464 0.5 28Z"
