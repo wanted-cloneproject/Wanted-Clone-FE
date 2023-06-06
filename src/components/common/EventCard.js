@@ -2,7 +2,7 @@ const EventCard = ({ img, label, title }) => {
   return (
     <div className="flex h-[273px] w-auto flex-col gap-3">
       <img
-        src={img}
+        src={require(`../../assets/imgs/${img}`)}
         alt={title}
         loading="lazy"
         className="border-gray h-full w-full cursor-pointer rounded-md border-[1px] object-cover"

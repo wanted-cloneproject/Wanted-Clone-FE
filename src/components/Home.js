@@ -1,10 +1,8 @@
-import { Outlet } from "react-router-dom";
-
 import Header from "./Header";
 import Footer from "./Footer";
 import { Routes, Route } from "react-router-dom";
 import AI from "../pages/ai";
-import Resume from "../pages/resume";
+import CV from "../pages/cv";
 import Main from "../pages/main";
 
 const Home = () => {
@@ -13,7 +11,7 @@ const Home = () => {
       <Header />
       <Routes>
         <Route path="" element={<Main />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route path="/cv" element={<CV />} />
         <Route path="/ai" element={<AI />} />
       </Routes>
       <Footer />

@@ -1,5 +1,32 @@
 const Footer = () => {
-  const list = ["기업소개", "이용약관", "고객센터"];
+  const titleList = ["기업소개", "이용약관", "고객센터"];
+
+  const linkList = [
+    {
+      url: "https://www.instagram.com/wantedjobs.kr/",
+      alt: "instagram",
+    },
+    {
+      url: "https://www.youtube.com/channel/UC0tGZ6MqieGG2m5lA5PeQsw",
+      alt: "youtube",
+    },
+    {
+      url: "https://www.facebook.com/wantedkr",
+      alt: "facebook",
+    },
+    {
+      url: "https://blog.naver.com/wantedlab",
+      alt: "blog",
+    },
+    {
+      url: "https://apps.apple.com/kr/app/id1074569961",
+      alt: "apple",
+    },
+    {
+      url: "https://play.google.com/store/apps/details?id=com.wanted.android.wanted&pli=1",
+      alt: "google",
+    },
+  ];
 
   return (
     <div className="mb-[50px] ml-auto mr-auto flex max-w-[1060px] flex-col py-2">
@@ -44,7 +71,7 @@ const Footer = () => {
                 </svg>
                 <a href="https://www.wanted.co.kr/">
                   <svg
-                    className="h-16 w-16 cursor-pointer"
+                    className="w-16 h-16 cursor-pointer"
                     viewBox="0 0 140 32"
                   >
                     <path
@@ -55,7 +82,7 @@ const Footer = () => {
                 </a>
               </div>
               <ul className="flex gap-8 font-[#3a3a3a] font-[500]">
-                {list.map((label, idx) => {
+                {titleList.map((label, idx) => {
                   return (
                     <li key={idx} className="cursor-pointer whitespace-nowrap">
                       <a href="/">{label}</a>
@@ -63,7 +90,7 @@ const Footer = () => {
                   );
                 })}
 
-                <li className="cursor-pointer whitespace-nowrap font-bold">
+                <li className="font-bold cursor-pointer whitespace-nowrap">
                   <a>개인정보 처리방침</a>
                 </li>
               </ul>
@@ -71,55 +98,17 @@ const Footer = () => {
           </nav>
         </div>
         <div>
-          <ul className="my-4 flex gap-3">
-            <li className="cursor-pointer">
-              <a href="https://www.instagram.com/wantedjobs.kr/">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_instagram.png&amp;w=20&amp;q=100"
-                  alt="instagram"
-                />
-              </a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="https://www.youtube.com/channel/UC0tGZ6MqieGG2m5lA5PeQsw">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_youtube.png&amp;w=25&amp;q=100"
-                  alt="youtube"
-                />
-              </a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="https://www.facebook.com/wantedkr">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_facebook.png&amp;w=20&amp;q=100"
-                  alt="facebook"
-                />
-              </a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="https://blog.naver.com/wantedlab">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_blog.png&amp;w=20&amp;q=100"
-                  alt="blog"
-                />
-              </a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="https://apps.apple.com/kr/app/id1074569961">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_apple.png&amp;w=17&amp;q=100"
-                  alt="apple"
-                />
-              </a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="https://play.google.com/store/apps/details?id=com.wanted.android.wanted&pli=1">
-                <img
-                  src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_google.png&amp;w=17&amp;q=100"
-                  alt="google"
-                />
-              </a>
-            </li>
+          <ul className="flex gap-3 my-4">
+            {linkList.map(({ url, alt }, index) => (
+              <li key={index} className="cursor-pointer">
+                <a href={url}>
+                  <img
+                    src={require(`../assets/imgs/logo/${alt}.png`)}
+                    alt={alt}
+                  />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

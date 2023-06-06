@@ -1,3 +1,5 @@
+import ArrowRightSVG from "../assets/icons/whiteArrowRight";
+
 const TestBanner = () => {
   return (
     <section className="pt-[60px]">
@@ -16,9 +18,7 @@ const TestBanner = () => {
               <p className="test-banner-text cursor-pointer text-[14px] font-[600] text-white">
                 유형테스트 하러가기
               </p>
-              <svg className="h-3 w-3" fill="white" viewBox="0 0 18 18">
-                <path d="m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z"></path>
-              </svg>
+              <ArrowRightSVG />
             </div>
           </div>
         </div>
