@@ -1,7 +1,9 @@
-const Resume = () => {
+import { cvCardList } from "../DB/cvCardList";
+
+const CV = () => {
   return (
     <div className="pt-[48px]">
-      <div className="h-full w-full bg-[url('../../public/imgs/1.jpg')] object-cover text-center">
+      <div className="h-full w-full bg-[url('../assets/imgs/1.jpg')] object-cover text-center">
         <div className="flex-col py-24 text-white">
           <h1 className="mb-3 text-[50px] font-[1000] tracking-tighter">
             합격을 부르는 이력서
@@ -25,79 +27,19 @@ const Resume = () => {
         <h1 className="mb-12 text-center text-[32px] font-bold">
           원티드 이력서는 이런 점이 좋아요!
         </h1>
-        <div>
-          <div className="flex flex-wrap justify-center gap-5">
-            <div className="h-[480px] w-[520px] rounded-xl bg-[#f1f7fe]">
-              <div className="px-[50px] py-[39px]">
-                <h1 className="mb-4 text-[24px] font-bold">
-                  이력서 하나로 모든 준비 끝
-                </h1>
-                <p className="text-[14px] text-[#171717]">
-                  이력서 작성부터 지원까지 한 곳에서! <br /> 회사별 양식에 맞출
-                  필요 없이 하나의 이력서만 작성하세요.
-                </p>
+        <div className="flex justify-center">
+          <div className="flex max-w-[1200px] flex-wrap justify-center gap-5">
+            {cvCardList.map(({ title, text, img }) => (
+              <div className="h-[480px] w-[520px] rounded-xl bg-[#f1f7fe]">
+                <div className="px-[50px] py-[40px]">
+                  <h1 className="mb-3 text-[24px] font-bold">{title}</h1>
+                  <p className="text-[15px] font-[400] text-[#494949]">
+                    {text}
+                  </p>
+                </div>
+                <div>{img}</div>
               </div>
-              <img
-                width="520"
-                height="312"
-                src="https://static.wanted.co.kr/images/userweb/resume_intro/resume_advantage_01.png"
-                alt="resume_advantage_01"
-              ></img>
-            </div>
-            <div className="h-[480px] w-[520px] rounded-xl bg-[#f1f1fe] ">
-              <div className="px-[50px] py-[53px]">
-                <h1 className="mb-4 text-[24px] font-bold">
-                  완성도를 높여주는 이력서 코칭
-                </h1>
-                <p className="text-[14px] text-[#171717]">
-                  이력서 코칭*으로 서류 합격률 30% UP <br />
-                  300만 합격 데이터를 분석해 합·불합격 단어를 알려드려요.
-                </p>
-                <p className="mt-2 text-[12px] text-[#8a8a8a]">
-                  *일부 직군에서는 사용 제한, 추후 확대 예정
-                </p>
-              </div>
-              <img
-                width="520"
-                height="256"
-                src="https://static.wanted.co.kr/images/userweb/resume_intro/resume_advantage_02.png"
-                alt="resume_advantage_02"
-              />
-            </div>
-            <div className="h-[480px] w-[520px] rounded-xl bg-[#f3f8ee] ">
-              <div className="px-[50px] py-[53px]">
-                <h1 className="mb-4 text-[24px] font-bold">
-                  이력서만 등록해도 찾아오는 면접 제안
-                </h1>
-                <p className="text-[14px] text-[#171717]">
-                  매치업은 서류 전형 없이 바로 면접 진행! <br /> 채용담당자가
-                  직접 면접을 제안합니다.
-                </p>
-              </div>
-              <img
-                width="520"
-                height="282"
-                src="https://static.wanted.co.kr/images/userweb/resume_intro/resume_advantage_03.png"
-                alt="resume_advantage_03"
-              />
-            </div>
-            <div className="h-[480px] w-[520px] rounded-xl bg-[#ecf8fb] ">
-              <div className="px-[50px] py-[54px]">
-                <h1 className="mb-4 text-[24px] font-bold">
-                  언제 어디서나 자유롭게 작성
-                </h1>
-                <p className="text-[14px] text-[#171717]">
-                  주말엔 노트북, 출퇴근길엔 스마트폰으로. <br /> 자유롭게
-                  작성하고 필요할 땐 PDF로 저장하세요.
-                </p>
-              </div>
-              <img
-                width="520"
-                height="282"
-                src="https://static.wanted.co.kr/images/userweb/resume_intro/resume_advantage_04.png"
-                alt="resume_advantage_04"
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -109,7 +51,7 @@ const Resume = () => {
           <div className="w-[1060px] bg-white px-20 py-24">
             <div className="border-b-[1px] border-gray-400 pb-10">
               <h1 className="text-[25px] font-bold text-[#8a8a8a]">김티드</h1>
-              <div className="mt-6 flex justify-between">
+              <div className="flex justify-between mt-6">
                 <p className="text-[16px] font-bold text-[#333333]">
                   이메일: wanted@wantedlab.com <br />
                   연락처: 000-0000-0000
@@ -126,7 +68,7 @@ const Resume = () => {
                   많습니다.
                 </p>
               </div>
-              <div className="mt-5 flex items-center justify-between">
+              <div className="flex items-center justify-between mt-5">
                 <ul className="flex flex-col gap-[14px] text-[16px] font-bold text-[#333333]">
                   <li>ㆍ 웹/앱 서비스의 프론트엔드 설계, 개발, 운영 경험</li>
                   <li>
@@ -192,7 +134,7 @@ const Resume = () => {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex justify-center gap-3">
+          <div className="flex justify-center gap-3 mt-10">
             <button className="border-gray rounded-full border-[1px] bg-white px-8 py-4 text-[18px] font-[600] text-gray-700 hover:bg-[#e1e2e3]">
               샘플 다운로드
             </button>
@@ -241,4 +183,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default CV;
