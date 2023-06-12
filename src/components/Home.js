@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import AI from "../pages/ai";
 import CV from "../pages/cv";
 import Main from "../pages/main";
+import Incomplete from "../pages/incomplete";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Route path="" element={<Main />} />
         <Route path="/cv" element={<CV />} />
         <Route path="/ai" element={<AI />} />
+        <Route path="/incomplete" element={<Incomplete />} />
       </Routes>
       <Footer />
     </div>

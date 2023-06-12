@@ -41,19 +41,19 @@ const MyHeader = () => {
             <LogoSVG />
           </Link>
         </div>
-        <ul className="flex items-center h-full">
+        <ul className="flex h-full items-center">
           <li className="flex h-full items-center whitespace-nowrap px-[15px] font-bold hover:border-b-[2px] hover:border-gray-300">
-            <Link to="/" className="flex gap-1">
+            <Link to="/incomplete" className="flex gap-1">
               채용
             </Link>
           </li>
           <li className="flex h-full items-center whitespace-nowrap px-[15px] font-bold hover:border-b-[2px] hover:border-gray-300">
-            <Link to="/" className="flex gap-1">
+            <Link to="/incomplete" className="flex gap-1">
               이벤트
             </Link>
           </li>
           <li className="flex h-full items-center whitespace-nowrap px-[15px] font-bold hover:border-b-[2px] hover:border-gray-300">
-            <Link to="/" className="flex gap-1">
+            <Link to="/incomplete" className="flex gap-1">
               직군별 연봉
             </Link>
           </li>
@@ -63,13 +63,13 @@ const MyHeader = () => {
             </Link>
           </li>
           <li className="flex h-full items-center whitespace-nowrap px-[15px] font-bold hover:border-b-[2px] hover:border-gray-300">
-            <Link to="/" className="flex gap-1">
+            <Link to="/incomplete" className="flex gap-1">
               커뮤니티
               <NewSVG />
             </Link>
           </li>
           <li className="flex h-full items-center whitespace-nowrap px-[15px] font-bold hover:border-b-[2px] hover:border-gray-300">
-            <Link to="/" className="flex gap-1">
+            <Link to="/incomplete" className="flex gap-1">
               프리랜서
             </Link>
           </li>

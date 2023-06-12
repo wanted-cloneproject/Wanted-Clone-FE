@@ -3,7 +3,7 @@ import WriteSVG from "../assets/icons/write";
 
 const AI = () => {
   return (
-    <div className="flex h-[560px] items-center justify-center pt-[60px]">
+    <div className="flex h-[500px] items-center justify-center pt-[50px]">
       <div className="flex-col items-center justify-center text-center">
         <h1 className="mb-3 text-[30px] font-bold">
           이력서만 등록해도 나에게 딱 맞는 포지션 추천!
@@ -15,7 +15,7 @@ const AI = () => {
         </p>
         <div className="flex gap-4">
           <div className="border-gray h-[180px] w-[300px] cursor-pointer flex-col items-center rounded-2xl border-[1px] p-6 shadow-md hover:border-[#36f] hover:text-[#36f]">
-            <div className="flex items-center justify-center mb-9">
+            <div className="mb-9 flex items-center justify-center">
               <UploadSVG />
             </div>
             <h1 className="my-2 text-[20px] font-bold">
@@ -26,7 +26,7 @@ const AI = () => {
             </p>
           </div>
           <div className="border-gray h-[180px] w-[300px] cursor-pointer flex-col items-center rounded-2xl border-[1px] p-6 shadow-md hover:border-[#36f] hover:text-[#36f]">
-            <div className="flex items-center justify-center mb-7">
+            <div className="mb-7 flex items-center justify-center">
               <WriteSVG />
             </div>
             <h1 className="my-2 text-[20px] font-bold">

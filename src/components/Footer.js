@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="mb-[50px] ml-auto mr-auto flex max-w-[1060px] flex-col py-2">
+    <div className="ml-auto mr-auto flex max-w-[1060px] flex-col py-2">
       <div className="border-gray flex flex-wrap items-center justify-between border-b-[1px]">
         <div className="flex items-center gap-8">
           <nav>
@@ -71,7 +71,7 @@ const Footer = () => {
                 </svg>
                 <a href="https://www.wanted.co.kr/">
                   <svg
-                    className="w-16 h-16 cursor-pointer"
+                    className="h-16 w-16 cursor-pointer"
                     viewBox="0 0 140 32"
                   >
                     <path
@@ -90,7 +90,7 @@ const Footer = () => {
                   );
                 })}
 
-                <li className="font-bold cursor-pointer whitespace-nowrap">
+                <li className="cursor-pointer whitespace-nowrap font-bold">
                   <a>개인정보 처리방침</a>
                 </li>
               </ul>
@@ -98,7 +98,7 @@ const Footer = () => {
           </nav>
         </div>
         <div>
-          <ul className="flex gap-3 my-4">
+          <ul className="my-4 flex gap-3">
             {linkList.map(({ url, alt }, index) => (
               <li key={index} className="cursor-pointer">
                 <a href={url}>
