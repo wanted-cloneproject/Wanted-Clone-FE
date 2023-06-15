@@ -30,22 +30,29 @@ const KakaoCallback = () => {
           localStorage.setItem("token", access_token);
 
           // 2. 사용자 정보 받아오기
-          axios
-            .post(
-              "https://kapi.kakao.com/v2/user/me",
-              {},
-              {
-                headers: {
-                  Authorization: `Bearer ${access_token}`,
-                },
-              }
-            )
-            .then((res) => {
-              console.log("Kakao 사용자 정보 가져오기 성공!");
-              console.log(`닉네임: ${res.data.properties.nickname}`);
-              console.log(`이메일: ${res.data.kakao_account.email}`);
-              localStorage.setItem("socialUser", res.data.properties.nickname);
-            });
+          // axios
+          //   .post(
+          //     "https://kapi.kakao.com/v2/user/me",
+          //     {},
+          //     {
+          //       headers: {
+          //         Authorization: `Bearer ${access_token}`,
+          //       },
+          //     }
+          //   )
+          //   .then((res) => {
+          //     console.log("Kakao 사용자 정보 가져오기 성공!");
+          //     console.log(`닉네임: ${res.data.properties.nickname}`);
+          //     console.log(`이메일: ${res.data.kakao_account.email}`);
+          //     localStorage.setItem("socialUser", res.data.properties.nickname);
+          //   });
+
+          // 2. 백엔드로 토큰 보내기
+          axios.get("https://wantedclone.com/login/", {
+            params: {
+              code: access_token,
+            },
+          });
 
           navigate("/");
         }
