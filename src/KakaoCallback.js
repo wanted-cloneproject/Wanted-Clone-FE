@@ -6,12 +6,11 @@ import { REDIRECT_URI } from "./OAuth";
 
 const KakaoCallback = () => {
   const navigate = useNavigate();
+  const code = new URL(window.location.href).searchParams.get("code"); // 인가코드 추출
+  const grant_type = "authorization_code";
+  const client_id = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    const code = new URL(window.location.href).searchParams.get("code"); // 인가코드 추출
-    const grant_type = "authorization_code";
-    const client_id = process.env.REACT_APP_API_KEY;
-
     // 1. 인가코드 전달하여 토큰 발급받기
     axios
       .post(
@@ -48,13 +47,19 @@ const KakaoCallback = () => {
           //   });
 
           // 2. 백엔드로 토큰 보내기
-          axios.get("https://wantedclone.com/login/", {
-            params: {
-              code: access_token,
-            },
-          });
+          axios
+            .get("https://wantedclone.com/login/", {
+              params: {
+                code: access_token,
+              },
+            }) // 사용자 정보 받기
+            .then((res) => {
+              // const nickName = res.nickName;
+              // const email = res.email;
 
-          navigate("/");
+              console.log(res);
+              navigate("/");
+            });
         }
       });
   }, []);
