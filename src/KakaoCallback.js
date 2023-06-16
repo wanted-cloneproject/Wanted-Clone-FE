@@ -13,7 +13,7 @@ const KakaoCallback = () => {
   useEffect(() => {
     // 1. 인가코드 전달하여 토큰 발급받기
     axios
-      .post("https://wantedclone.com/login/", {
+      .get("https://wantedclone.com/login/", {
         params: {
           code: code,
         },
@@ -72,7 +72,7 @@ const KakaoCallback = () => {
 
     //     console.log(res);
     //   });
-    navigate("/");
+    // navigate("/");
     // }
     // });
   }, []);
